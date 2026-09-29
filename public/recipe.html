@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pour Decisions</title>
+    <link rel="stylesheet" href="./stylesheet.css">
+</head>
+<body>
+    <header class="header">
+        <h1><a class="site-title" href="./index.html">Pour Decisions</a></h1>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="./index.html">Home</a>
+            <a id="recipe-current-link" href="./recipe.html" aria-current="page">Recipe</a>
+            <div class="browse-nav">
+                <a class="browse-nav-link" href="./browse.html?mode=all">Browse Cocktails</a>
+                <button class="browse-nav-toggle" type="button" aria-label="Show browse options" aria-expanded="false" aria-controls="browse-nav-menu"></button>
+                <div class="browse-nav-menu">
+                    <a href="./browse.html?mode=category">Filter by category</a>
+                    <a href="./browse.html?mode=ingredient">Filter by ingredient</a>
+                    <a href="./browse.html?mode=type">Filter by drink type</a>
+                </div>
+            </div>
+            <a href="./random.html">Random Cocktail</a>
+            <a href="/search">Search Recipes</a>
+            <form id="drink-search" class="site-search" role="search" autocomplete="off">
+                <label class="visually-hidden" for="drink-search-input">Search cocktails</label>
+                <input id="drink-search-input" type="search" placeholder="Search cocktails..." aria-autocomplete="list" aria-controls="drink-search-results" aria-expanded="false">
+                <button type="submit">Search</button>
+                <div id="drink-search-results" class="search-suggestions" role="listbox" aria-label="Cocktail suggestions" hidden></div>
+            </form>
+        </nav>
+    </header>
+
+    <main>
+        <h2 id="recipe-page-title">Recipe</h2>
+        <article id="recipe-card" class="daily-cocktail">
+            <div id="recipe-result" class="daily-cocktail-content" aria-live="polite">
+                <p class="status-message">Loading recipe...</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <p>Alcohol is only for adults of legal drinking age. Please drink responsibly; never drink and drive.</p>
+    </footer>
+
+    <script src="./app.js" defer></script>
+</body>
+</html>

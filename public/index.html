@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pour Decisions</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <header class="header">
+        <h1><a class="site-title" href="./index.html">Pour Decisions</a></h1>
+
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="./index.html" aria-current="page">Home</a>
+            <div class="browse-nav">
+                <a class="browse-nav-link" href="./browse.html?mode=all">Browse Cocktails</a>
+                <button class="browse-nav-toggle" type="button" aria-label="Show browse options" aria-expanded="false" aria-controls="browse-nav-menu"></button>
+                <div class="browse-nav-menu">
+                    <a href="./browse.html?mode=category">Filter by category</a>
+                    <a href="./browse.html?mode=ingredient">Filter by ingredient</a>
+                    <a href="./browse.html?mode=type">Filter by drink type</a>
+                </div>
+            </div>
+            <a href="./random.html">Random Cocktail</a>
+            <a href="/search">Search Recipes</a>
+            <form id="drink-search" class="site-search" role="search" autocomplete="off">
+                <label class="visually-hidden" for="drink-search-input">Search cocktails</label>
+                <input id="drink-search-input" type="search" placeholder="Search cocktails..." aria-autocomplete="list" aria-controls="drink-search-results" aria-expanded="false">
+                <button type="submit">Search</button>
+                <div id="drink-search-results" class="search-suggestions" role="listbox" aria-label="Cocktail suggestions" hidden></div>
+            </form>
+        </nav>
+    </header>
+
+    <main>
+        <section class="home-intro" aria-labelledby="intro-heading">
+            <p class="intro-kicker">A DAILY POUR</p>
+            <h2 id="intro-heading">Find your next favorite cocktail.</h2>
+            <p>Explore cocktails by ingredient, category, or drink type, or let today’s featured recipes give you a place to start.</p>
+            <div class="intro-actions">
+                <a href="./browse.html?mode=all">Browse cocktails</a>
+                <a href="./random.html">Get a random cocktail</a>
+            </div>
+        </section>
+
+        <section class="daily-section" aria-labelledby="daily-heading">
+            <h2 id="daily-heading">Cocktails of the day</h2>
+            <div class="daily-cocktail-grid">
+                <article class="daily-cocktail daily-non-alcoholic">
+                    <header class="daily-cocktail-heading">
+                        <p>Non-alcoholic</p>
+                        <h3>Today’s alcohol-free pick</h3>
+                    </header>
+                    <div id="daily-non-alcoholic" class="daily-cocktail-content" aria-live="polite">
+                        <p class="status-message">Finding today’s cocktail...</p>
+                    </div>
+                </article>
+
+                <article class="daily-cocktail daily-alcoholic">
+                    <header class="daily-cocktail-heading">
+                        <p>Alcoholic</p>
+                        <h3>Today’s cocktail pick</h3>
+                    </header>
+                    <div id="daily-alcoholic" class="daily-cocktail-content" aria-live="polite">
+                        <p class="status-message">Finding today’s cocktail...</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Alcohol is only for adults of legal drinking age. Please drink responsibly; never drink and drive.</p>
+    </footer>
+
+    <script src="./app.js" defer></script>
+</body>
+</html>
