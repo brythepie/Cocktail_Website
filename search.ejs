@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pour Decisions</title>
+    <link rel="stylesheet" href="/stylesheet.css">
+</head>
+<body>
+    <header class="header">
+        <h1><a class="site-title" href="/">Pour Decisions</a></h1>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="/">Home</a>
+            <a href="/browse.html?mode=all">Browse Cocktails</a>
+            <a href="/random.html">Random Cocktail</a>
+            <a href="/search" aria-current="page">Search Recipes</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="home-intro" aria-labelledby="search-heading">
+            <p class="intro-kicker">COCKTAIL SEARCH</p>
+            <h2 id="search-heading">Find a recipe by name.</h2>
+            <form class="drink-form" action="/search" method="post">
+                <label for="drink-name">Cocktail name</label>
+                <input id="drink-name" name="drinkName" type="search" value="<%= query %>" maxlength="100" required>
+                <button type="submit">Search recipes</button>
+            </form>
+        </section>
+
+        <% if (error) { %>
+            <p class="api-message" role="alert"><%= error %></p>
+        <% } %>
+
+        <% if (drink) { %>
+            <article class="daily-cocktail <%= drink.strAlcoholic && drink.strAlcoholic.toLowerCase().includes('non') ? 'daily-non-alcoholic' : 'daily-alcoholic' %>">
+                <div class="daily-cocktail-content">
+                    <div class="daily-drink-layout">
+                        <img class="daily-drink-image" src="<%= drink.strDrinkThumb %>" alt="<%= drink.strDrink %>">
+                        <div class="daily-drink-recipe">
+                            <h3 class="daily-drink-name"><%= drink.strDrink %></h3>
+                            <p class="daily-drink-type"><%= drink.strAlcoholic || 'Type unknown' %></p>
+                            <h4>Ingredients</h4>
+                            <ul>
+                                <% ingredients.forEach(ingredient => { %>
+                                    <li><%= ingredient.measure ? `${ingredient.measure} ` : '' %><%= ingredient.name %></li>
+                                <% }) %>
+                            </ul>
+                            <h4>Method</h4>
+                            <p class="recipe-instructions"><%= drink.strInstructions || 'No instructions provided.' %></p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        <% } %>
+    </main>
+
+    <footer class="site-footer">
+        <p>Alcohol is only for adults of legal drinking age. Please drink responsibly; never drink and drive.</p>
+    </footer>
+</body>
+</html>
