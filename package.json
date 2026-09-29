@@ -1,0 +1,16 @@
+{
+  "name": "pour-decisions-cocktails",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cocktail discovery app using Express, EJS, and TheCocktailDB.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check routes/cocktails.js && node --check public/app.js"
+  },
+  "dependencies": {
+    "axios": "^1.11.0",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1"
+  }
+}
